@@ -1,0 +1,52 @@
+datasource:
+   url: jdbc:mysql://mysql/springDB
+   username: root
+   password: root
+   driverClassName: com.mysql.cj.jdbc.Driver
+
+---
+spring:
+  config:
+    activate:
+      on-profile: ${SPRING_PROFILE}
+  
+  datasource:
+    url: ${datasource.url}
+    username: ${datasource.username}
+    password: ${datasource.password}
+    driverClassName: ${datasource.driver}
+  batch:
+    job:
+      enabled: false
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: com.vladmihalcea.hibernate.type.util.CamelCaseToSnakeCaseNamingStrategy
+  main:
+    allow-bean-definition-overriding: true    
+      
+logging:
+  level:
+    root: debug
+    
+testing.mode: false
+
+---
+server:
+  port : 9001
+spring:
+  jpa:
+    open-in-view: false
+    show-sql: true
+  config:
+    activate:
+      on-profile: test
+  
+  datasource:
+    url: jdbc:mysql://localhost:3306/springDB
+    username: root
+    password: root
+    driverClassName: com.mysql.cj.jdbc.Driver
+        

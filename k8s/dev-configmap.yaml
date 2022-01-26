@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ms-be-config
+data:
+  dev-config.json:
+    '{
+      "datasource.url": "jdbc:mysql://mysql/springDB",
+      "datasource.username": "root",
+      "datasource.password": "root",
+      "datasource.driver": "com.mysql.cj.jdbc.Driver"
+      
+     }'

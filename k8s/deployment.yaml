@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-backend-api
+  labels:
+    app: my-backend-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-backend-api
+  template:
+    metadata:
+      labels:
+        app: my-backend-api
+    spec:
+      containers:
+      - name: my-backend-api
+        image: localhost:5000/ms-be:1.0.0
+        ports:
+        - containerPort: 8080
+        imagePullPolicy: IfNotPresent
+        env:   
+          - name: SPRING_PROFILE
+            value: dev
+          - name: SPRING_PROFILES_ACTIVE
+            value: dev
+          - name: SPRING_APPLICATION_JSON
+            valueFrom:
+              configMapKeyRef:
+                name: ms-be-config
+                key: dev-config.json

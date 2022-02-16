@@ -5,3 +5,5 @@ CREATE TABLE emp99 (
     DESIGNATION varchar(4000),
     PRIMARY KEY (id)
 );
+
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'host.docker.internal' IDENTIFIED BY 'root';

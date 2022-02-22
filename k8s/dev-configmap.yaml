@@ -8,6 +8,6 @@ data:
       "datasource.url": "jdbc:mysql://mysql/springDB",
       "datasource.username": "root",
       "datasource.password": "root",
-      "datasource.driver": "com.mysql.cj.jdbc.Driver"
+      "datasource.driver": "com.mysql.jdbc.Driver"
       
      }'

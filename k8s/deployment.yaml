@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: my-backend-api
-        image: localhost:5000/ms-be:1.0.0
+        image: dhanuka84/ms-be:1.0.0
         ports:
         - containerPort: 8080
         imagePullPolicy: IfNotPresent
